@@ -1,0 +1,15 @@
+{
+  "name": "svg-to-lottie-converter",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "docker:build": "docker build --no-cache=true -t plays.svgtolottieconverter .",
+    "docker:run": "docker run --name plays.svgtolottieconverter -p 3000:3000 -d plays.svgtolottieconverter",
+    "docker:exec": "docker exec -it plays.svgtolottieconverter /bin/bash"
+  },
+  "keywords": [],
+  "author": "Animo Apps",
+  "license": "ISC",
+  "devDependencies": {},
+  "dependencies": {}
+}
