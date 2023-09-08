@@ -96,4 +96,4 @@ def create_upload_file_def(optimize: bool = False, file: UploadFile = File(...))
 
 
 if __name__ == "__main__":
-    uvicorn.run("svgtolottie:app", host="0.0.0.0")
+    uvicorn.run("svgtolottie:app", host="0.0.0.0", port=3000)
