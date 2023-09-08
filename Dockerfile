@@ -13,4 +13,7 @@ COPY requirements.txt ./
 RUN pip3 install -r ./requirements.txt
 
 # Start the web server
-RUN python3 src/wsgi.py
+WORKDIR /usr/src/app
+COPY src ./
+ENV PYTHONUNBUFFERED=1
+CMD ["python3", "wsgi.py"]
