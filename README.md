@@ -8,7 +8,7 @@ An API for removing the background from images.
 # Building and Running the Docker Container Locally
 We can build the `plays.svgtolottieconverter` Docker container locally and run the server locally to test code changes to the web service.
 * Open a terminal window and change directory to the root of this repository
-* Run `npm run docker:build` to build the Docker container.
+* Run `npm run docker:build` to build the Docker container (add `--no-cache` to prevent caching).
 * Run `npm run docker:run` to run the Docker container.
 * Run `npm run docker:exec` to get a bash shell in the Docker container.
 * Visit `http://localhost:3000` to test the server is running.
