@@ -16,4 +16,4 @@ RUN pip3 install -r ./requirements.txt
 WORKDIR /usr/src/app
 COPY src ./
 ENV PYTHONUNBUFFERED=1
-CMD ["python3", "svgtolottie.py"]
+CMD ["python3", "api.py"]
