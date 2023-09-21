@@ -1,4 +1,4 @@
-# Antiblanks Image BG Removal Web Service
+# Animo Apps Node JS Web Service Wrapper for the Lottie Files SVG to Lottie Converter
 An API for removing the background from images.
 
 # Prerequisites
