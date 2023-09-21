@@ -2,14 +2,36 @@
   "name": "svg-to-lottie-converter",
   "version": "1.0.0",
   "description": "",
+  "main": "index.js",
   "scripts": {
-    "docker:build": "docker build --no-cache=true -t plays.svgtolottieconverter .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint --ext .js,.ts .",
+    "docker:build": "npm run lint && docker build --no-cache=true -t plays.svgtolottieconverter .",
     "docker:run": "docker run --name plays.svgtolottieconverter -p 3000:3000 -d plays.svgtolottieconverter",
-    "docker:exec": "docker exec -it plays.svgtolottieconverter /bin/bash"
+    "docker:exec": "docker exec -it plays.svgtolottieconverter /bin/bash",
+    "serve": "nodemon index.ts"
   },
   "keywords": [],
   "author": "Animo Apps",
   "license": "ISC",
-  "devDependencies": {},
-  "dependencies": {}
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/lodash": "^4.14.177",
+    "@types/node": "^16.11.9",
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
+    "eslint": "^8.3.0",
+    "eslint-plugin-import": "^2.25.3",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.2"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "busboy": "^0.3.1",
+    "express": "^4.17.1",
+    "express-jwt": "^6.1.0",
+    "jwks-rsa": "^2.0.5",
+    "lodash": "^4.17.21",
+    "nodemon": "^2.0.15"
+  }
 }
