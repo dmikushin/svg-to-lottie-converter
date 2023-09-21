@@ -32,6 +32,7 @@ __version__ = "0.0.1"
 
 app = typer.Typer()
 
+# Called like `python3 -m svgtolottie convert -lfp "./file_copy.svg"`
 @app.command()
 def convert(
     file_path: str = typer.Option(
