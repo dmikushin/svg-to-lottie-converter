@@ -1,7 +1,7 @@
 import express, { Request, Response, NextFunction } from "express";
 import { RequestWithRawBody } from "./js/types/requests";
 import services from "./js/services";
-// TODO: Re-introduce the JWT auth with Auth0
+// TODO: Re-introduce the JWT auth with Auth0 here...
 //import ErrorCodeTypes from "./js/constants/error-code-types";
 //import jwt from "express-jwt";
 //import jwksRsa from "jwks-rsa";

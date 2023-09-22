@@ -6,6 +6,6 @@ export interface ConvertSvgToLottieRequestPayload {
 
 export interface ConvertSvgToLottie {
   outputFileDirectory: string,
-  outputFilePath: string,
+  outputJson: string,
   removeFile: () => void
 }

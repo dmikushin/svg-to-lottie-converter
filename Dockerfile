@@ -12,13 +12,6 @@ WORKDIR /usr/src/app
 COPY requirements.txt ./
 RUN pip3 install -r ./requirements.txt
 
-# Start the web server
-# TODO: Either use this or remove it...
-#WORKDIR /usr/src/app
-#COPY py ./py/
-#ENV PYTHONUNBUFFERED=1
-#CMD ["python3", "py/api.py"]
-
 # Install Node.
 # Note: This was copied from the Official Node Docker for `node:16-buster` on https://github.com/nodejs/docker-node.
 RUN groupadd --gid 1000 node \

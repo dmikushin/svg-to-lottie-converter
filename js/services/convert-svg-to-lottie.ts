@@ -9,7 +9,6 @@ import {
   convertSvgToLottieFromFileUrl,
   convertSvgToLottieFromFileBase64 
 } from "../managers/convert-svg-to-lottie";
-import fs from "fs";
 
 export const convertSvgToLottie = async (
   { body }: Request, 
@@ -40,15 +39,13 @@ export const convertSvgToLottie = async (
       return undefined;
     }
     const {
-      outputFilePath, 
+      outputJson, 
       removeFile
     } = convertSvgToLottieFile;
-    fs.createReadStream(outputFilePath)
-      .on("error", (error: Error) => {
-        throw error;
-      })
-      .on("end", removeFile)
-      .pipe(response);
+    response.send({
+      data: outputJson,
+    });
+    removeFile();
   }
   catch (error) {
     console.error(
