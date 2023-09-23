@@ -4,6 +4,8 @@ from pathlib import Path
 import xml.etree.cElementTree as et
 from core.svg import convert_svg_to_lottie
 from core.svg import convert_svg_to_lottie_def
+import ast
+import json
 
 def is_svg(file_path: str):
     tag = None
@@ -43,7 +45,9 @@ def convert(
     ),
 ) -> None:
     anim = convert_from_local_file(False, file_path)
-    typer.echo(f'{anim}')
+    anim_dict = ast.literal_eval(f'{anim}')
+    anim_json = json.dumps(anim_dict)
+    typer.echo(f'{anim_json}')
     raise typer.Exit()
     return
 

@@ -42,9 +42,7 @@ export const convertSvgToLottie = async (
       outputJson, 
       removeFile
     } = convertSvgToLottieFile;
-    response.send({
-      data: outputJson,
-    });
+    response.send(outputJson);
     removeFile();
   }
   catch (error) {
