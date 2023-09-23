@@ -1,10 +1,9 @@
 import express, { Request, Response, NextFunction } from "express";
 import { RequestWithRawBody } from "./js/types/requests";
 import services from "./js/services";
-// TODO: Re-introduce the JWT auth with Auth0 here...
-//import ErrorCodeTypes from "./js/constants/error-code-types";
-//import jwt from "express-jwt";
-//import jwksRsa from "jwks-rsa";
+import ErrorCodeTypes from "./js/constants/error-code-types";
+import jwt from "express-jwt";
+import jwksRsa from "jwks-rsa";
 
 const port = process.env.PORT ? Number(process.env.PORT) : 3000;
 const host = "0.0.0.0";
@@ -38,19 +37,19 @@ app.get("/test", getTestString);
  ********/
 
 // Setup JWT authentication using Auth0
-/*const checkJwt = jwt({
+const checkJwt = jwt({
   secret: jwksRsa.expressJwtSecret({
     cache: true,
     rateLimit: true,
     jwksRequestsPerMinute: 10,
     jwksUri: "https://prod-mdhydf16.us.auth0.com/.well-known/jwks.json"
   }),
-  audience: "https://api-remove-img-bg",
+  audience: "https://api-convert-svg-to-lottie-json",
   issuer: "https://prod-mdhydf16.us.auth0.com/",
   algorithms: ["RS256"]
-});*/
+});
 
-/*const checkJwtAuthError = (
+const checkJwtAuthError = (
   error: Error, 
   _: Request, 
   response: Response, 
@@ -64,10 +63,17 @@ app.get("/test", getTestString);
     });
   }
   next();
-};*/
+};
 
-//app.use(checkJwt);
-//app.use(checkJwtAuthError);
+app.use(checkJwt);
+app.use(checkJwtAuthError);
+
+// Test endpoint
+const getAuthenticatedTestString = (request: Request, response: Response) => {
+  response.status(200).json({ "test": "Successful" });
+};
+
+app.get("/authenticated-test", getAuthenticatedTestString);
 
 // Endpoints
 app.post("/convert-svg-to-lottie", services.convertSvgToLottie);
