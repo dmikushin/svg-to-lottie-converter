@@ -47,7 +47,7 @@ export const convertSvgToLottie = async (
   }
   catch (error) {
     console.error(
-      "ConvertSvgToLottieService: Error removing image background from file.", 
+      "ConvertSvgToLottieService: Error converting SVG to Lottie.", 
       error,
     );
     response.status(500).send({

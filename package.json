@@ -6,12 +6,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint --ext .js,.ts .",
-    "docker:build": "npm run lint && docker build --no-cache=true -t plays.svgtolottieconverter .",
-    "docker:run": "docker run --name plays.svgtolottieconverter -p 3000:3000 -d plays.svgtolottieconverter",
-    "docker:exec": "docker exec -it plays.svgtolottieconverter /bin/bash",
-    "aws:login": "aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin {TODO: Get this ID}.dkr.ecr.us-west-2.amazonaws.com",
-    "aws:docker:tag": "docker tag plays.svgtolottieconverter:latest {TODO: Get this ID}.dkr.ecr.us-west-2.amazonaws.com/plays.svgtolottieconverter:latest",
-    "aws:docker:push": "docker push {TODO: Get this ID}.dkr.ecr.us-west-2.amazonaws.com/plays.svgtolottieconverter:latest",
+    "docker:build": "npm run lint && docker build --no-cache=true -t plays.svgtolottieconverter.webservice .",
+    "docker:run": "docker run --name plays.svgtolottieconverter.webservice -p 3000:3000 -d plays.svgtolottieconverter.webservice",
+    "docker:exec": "docker exec -it plays.svgtolottieconverter.webservice /bin/bash",
+    "aws:login": "aws ecr get-login-password --region us-west-2 --profile dan.ivanovic.plays | docker login --username AWS --password-stdin 514008465208.dkr.ecr.us-west-2.amazonaws.com",
+    "aws:docker:tag": "docker tag plays.svgtolottieconverter.webservice:latest 514008465208.dkr.ecr.us-west-2.amazonaws.com/plays.svgtolottieconverter.webservice:latest",
+    "aws:docker:push": "docker push 514008465208.dkr.ecr.us-west-2.amazonaws.com/plays.svgtolottieconverter.webservice:latest",
     "aws:deploy": "npm run docker:build && npm run aws:login && npm run aws:docker:tag && npm run aws:docker:push",
     "serve": "nodemon index.ts"
   },
