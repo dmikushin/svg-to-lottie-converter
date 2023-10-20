@@ -29,6 +29,7 @@ We can build the `plays.svgtolottieconverter.webservice` Docker container locall
   * Note: Do not "Run Task" after creating a task definition as it suggests in this guide, the task will get ran dynamically by the ECS service that we create
 * Create a new Load Balancer with a new Target Group 
   * Use instructions here: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-application-load-balancer.html
+  * Make sure to set up the Health Check with a valid path, using the default (AWS) "/" Health Check path is invalid and can cause unnecessary auth errors in the service, the web service has a default "/test" Health Check endpoint so you should use this instead
 * Create a service on the ECS Cluster
   * Use instructions here: https://mohitshrestha02.medium.com/deploying-a-simple-hello-world-httpd-container-on-an-ecs-cluster-64c880d265f0 
   * Note: When specifiying the number of tasks use "3" (minimum "1", desired "3", maximum "3"), our instance only has 8GB available and each task requires 2GB so we cannot support running more than 3 tasks on this instance
