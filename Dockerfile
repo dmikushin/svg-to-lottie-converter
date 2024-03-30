@@ -1,4 +1,4 @@
-FROM python:3.8-buster
+FROM python:3.8-bookworm
 
 # Install `software-properties-common` so that we can use `apt-add-repository`
 # which is missing from the default Debian installation.
